@@ -13,7 +13,7 @@ This project provides a MySQL database for a sample company specializing in alum
 - Quality Control
 - Stock Status
 
-## Contents of the file `clean_combined_aluminum_joinery.sql`
+## Contents of the file `clean_combined.sql`
 
 Database structure and content:
 
