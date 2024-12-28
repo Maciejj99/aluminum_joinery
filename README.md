@@ -125,3 +125,7 @@ Monitors stock status:
 ## Database Analysis Queries
 
 ```sql
+### (List of all products)
+SELECT product_id, name, product_type, price 
+FROM Products;
+
