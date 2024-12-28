@@ -121,3 +121,7 @@ Monitors stock status:
 - **`inventory_date`** (TIMESTAMP): Inventory record date.
 
 ---
+
+## Database Analysis Queries
+
+```sql
