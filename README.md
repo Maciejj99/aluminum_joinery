@@ -1,4 +1,4 @@
-# Aluminum Joinery Production Database
+ # Aluminum Joinery Production Database
 
 This project provides a MySQL database for a sample company specializing in aluminum joinery production. The database includes information on:
 
@@ -129,3 +129,13 @@ Monitors stock status:
 SELECT product_id, name, product_type, price 
 FROM Products;
 
+### (List of clients sorted by last name)
+SELECT customer_id, first_name, last_name, email, phone_number 
+FROM Customers
+ORDER BY last_name ASC;
+
+### (Orders of a given customer)
+SELECT o.order_id, o.order_date, o.status, o.total_price 
+FROM Orders o
+JOIN Customers c ON o.customer_id = c.customer_id
+WHERE c.last_name = 'Janczak';  --np, 'Janczak'
