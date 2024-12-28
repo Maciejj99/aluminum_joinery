@@ -139,3 +139,28 @@ SELECT o.order_id, o.order_date, o.status, o.total_price
 FROM Orders o
 JOIN Customers c ON o.customer_id = c.customer_id
 WHERE c.last_name = 'Janczak';  --np, 'Janczak'
+
+### (Machines that are currently active)
+SELECT machine_id, machine_name, last_service_date, next_service_date
+FROM Machines
+WHERE operational_status = 'Active';
+
+### (Employees in individual departments)
+SELECT department, COUNT(employee_id) AS employee_count 
+FROM Employees
+GROUP BY department
+ORDER BY employee_count DESC;
+
+### (Order value for each product)
+SELECT p.product_id, p.name, SUM(oi.total_price) AS total_sales 
+FROM Products p
+JOIN OrderItems oi ON p.product_id = oi.product_id
+GROUP BY p.product_id, p.name
+ORDER BY total_sales DESC;
+
+### (Number of orders placed by customers)
+SELECT c.customer_id, c.first_name, c.last_name, COUNT(o.order_id) AS total_orders 
+FROM Customers c
+JOIN Orders o ON c.customer_id = o.customer_id
+GROUP BY c.customer_id, c.first_name, c.last_name
+ORDER BY total_orders DESC;
